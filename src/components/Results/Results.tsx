@@ -9,9 +9,15 @@ type ResultsProps = {
 export const Results = ({ searchParams }: ResultsProps) => {
   const { data, error, isFetching } = useNasaQuery(searchParams);
 
+  // TODO: connect isFetching state to the Form button.
+
   return (
     <>
       <Text>results go here</Text>
+      { isFetching ?
+        <Text>Fetching data</Text>
+        : null
+      }
       <Text>{JSON.stringify(data)}</Text>;
     </>
   );
