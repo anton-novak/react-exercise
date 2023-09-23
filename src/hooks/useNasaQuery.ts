@@ -8,7 +8,11 @@ export const useNasaQuery = (params: NasaSearchParams | undefined) => {
 
   // if params is empty then no request happens
   return useQuery<NasaResponse>(
-    ["nasaSearch"],
+    // Commented out this line because it treated all requests as the same
+    // for caching purposes. Used URLs unique to each request instead.
+    // https://tanstack.com/query/latest/docs/react/guides/query-keys
+    // ["nasaSearch"],
+    [urlNasaSearchUrl],
     () => fetch(urlNasaSearchUrl).then((res) => res.json()),
     { enabled: !!params }
   );

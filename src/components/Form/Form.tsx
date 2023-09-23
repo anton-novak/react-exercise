@@ -6,9 +6,10 @@ import { NasaSearchParams } from "../../types"
 
 type FormProps = {
     setSearchParams: (searchParams: NasaSearchParams) => void;
+    isFetching: boolean;
 }
 
-export const Form = ({ setSearchParams } : FormProps) => {
+export const Form = ({ setSearchParams, isFetching } : FormProps) => {
 
     // We define a validation schema with yup.
     const validationObject = yup.object({
@@ -83,7 +84,9 @@ export const Form = ({ setSearchParams } : FormProps) => {
                 errorMessage={formik.touched.yearStart ? formik.errors.yearStart : ''}
             />
             <br />
-            <Button type="submit">Submit</Button>
+            <Button type="submit">
+                {isFetching ? "Submitting..." : "Submit"}
+            </Button>
         </form>
     )
 }
