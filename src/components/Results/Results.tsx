@@ -1,6 +1,7 @@
 import { Text } from "@cruk/cruk-react-components";
 import { NasaSearchParams } from "../../types";
 import useNasaQuery from "../../hooks/useNasaQuery";
+import ImageGallery from "../ImageGallery/ImageGallery";
 
 type ResultsProps = {
   searchParams: NasaSearchParams;
@@ -21,7 +22,11 @@ export const Results = ({ searchParams, setIsFetching }: ResultsProps) => {
   return (
     <>
       <Text>results go here</Text>
-      <Text>{JSON.stringify(data)}</Text>;
+      {/* <Text>{JSON.stringify(data)}</Text>; */}
+      { searchParams && searchParams.mediaType === "image" && data &&
+        <ImageGallery 
+          data={data.collection.items.slice(0, 10)}
+        /> }
     </>
   );
 };

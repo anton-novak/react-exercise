@@ -21,6 +21,10 @@ const nextConfig = {
       // pure?: boolean,
     },
   },
+
+  images: {
+    domains: ["images-assets.nasa.gov"],
+  },
 };
 
 module.exports = nextConfig;
