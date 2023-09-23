@@ -8,7 +8,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"test": "",
+		"test": "jest --ci",
 		"test:ci": "jest --ci"
 	},
 	"dependencies": {
