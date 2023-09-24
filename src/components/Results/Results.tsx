@@ -2,6 +2,7 @@ import { NasaSearchParams } from "../../types";
 import useNasaQuery from "../../hooks/useNasaQuery";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import AudioPlaylist from "../AudioPlaylist/AudioPlaylist";
+import VideoPlaylist from "../VideoPlaylist/VideoPlaylist";
 
 type ResultsProps = {
   searchParams: NasaSearchParams;
@@ -21,14 +22,20 @@ export const Results = ({ searchParams, setIsFetching }: ResultsProps) => {
 
   return (
     <>
-      { searchParams && searchParams.mediaType === "image" && data &&
-        <ImageGallery 
+      {searchParams && searchParams.mediaType === "image" && data &&
+        <ImageGallery
           // TODO: Introduce pagination.
           data={data.collection.items.slice(0, 10)}
-        /> 
+        />
       }
-      { searchParams && searchParams.mediaType === "audio" && data &&
-        <AudioPlaylist 
+      {searchParams && searchParams.mediaType === "audio" && data &&
+        <AudioPlaylist
+          // TODO: Introduce pagination.
+          data={data.collection.items.slice(0, 10)}
+        />
+      }
+      {searchParams && searchParams.mediaType === "video" && data &&
+        <VideoPlaylist
           // TODO: Introduce pagination.
           data={data.collection.items.slice(0, 10)}
         />

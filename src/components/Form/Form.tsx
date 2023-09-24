@@ -86,7 +86,7 @@ export const Form = ({ setSearchParams, isFetching } : FormProps) => {
                 errorMessage={formik.touched.yearStart ? formik.errors.yearStart : ''}
             />
             <br />
-            <Button type="submit">
+            <Button type="submit" style={{marginBottom: "1.5em"}}>
                 {isFetching ? "Submitting..." : "Submit"}
             </Button>
         </form>
