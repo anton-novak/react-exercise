@@ -1,7 +1,7 @@
-import { Text } from "@cruk/cruk-react-components";
 import { NasaSearchParams } from "../../types";
 import useNasaQuery from "../../hooks/useNasaQuery";
 import ImageGallery from "../ImageGallery/ImageGallery";
+import AudioPlaylist from "../AudioPlaylist/AudioPlaylist";
 
 type ResultsProps = {
   searchParams: NasaSearchParams;
@@ -21,12 +21,18 @@ export const Results = ({ searchParams, setIsFetching }: ResultsProps) => {
 
   return (
     <>
-      <Text>results go here</Text>
-      {/* <Text>{JSON.stringify(data)}</Text>; */}
       { searchParams && searchParams.mediaType === "image" && data &&
         <ImageGallery 
+          // TODO: Introduce pagination.
           data={data.collection.items.slice(0, 10)}
-        /> }
+        /> 
+      }
+      { searchParams && searchParams.mediaType === "audio" && data &&
+        <AudioPlaylist 
+          // TODO: Introduce pagination.
+          data={data.collection.items.slice(0, 10)}
+        />
+      }
     </>
   );
 };
