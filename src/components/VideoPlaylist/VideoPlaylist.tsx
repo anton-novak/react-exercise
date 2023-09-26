@@ -1,4 +1,4 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
+// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable jsx-a11y/media-has-caption */
 import { useEffect, useState } from "react";
 import { Heading, Box, Text } from "@cruk/cruk-react-components";
